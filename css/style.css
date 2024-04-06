@@ -1,0 +1,27 @@
+
+section{
+  max-width: 1200px;
+  margin:  auto;
+}
+
+section img{
+  
+ height: 250px;
+ 
+ 
+}
+form{
+
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #8592847e;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
