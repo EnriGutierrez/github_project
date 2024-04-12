@@ -14,13 +14,13 @@
       <h1>Calcular indice de masa corporal (IMC)</h1>
       <form id="imcForm">
         <div class="mb-3">
-          <label for="disabledTextInput" class="form-label">Nombre</label>
+          <label for="disabledTextInput"  class="form-label">Nombre</label>
           <input type="text" id="disabledTextInput" class="form-control" required>
     
         </div>
         <div class="mb-3">
           
-          <label for="weight" class="form-label">Peso (kg)</label>
+          <label for="weight" class="form-label" >Peso (kg)</label>
           <input
             type="number"
             class="form-control"
@@ -36,6 +36,7 @@
         <button type="submit" class="btn btn-primary">Calcular IMC</button>
         <button type="reset" class="btn btn-secondary">Borrar</button>
         <button type="submit" class="btn btn-success">buscar</button>
+        <button  id="btnguardar" class="btn btn-secondary">Guardar</button>
       </form>
     </div>
     <div class="resul container" id="resultContainer">
@@ -47,5 +48,6 @@
       
     </section>
     <script src="/js/script.js"></script>
+    <script src="/js/config.js"></script>
   </body>
 </html>

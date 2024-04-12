@@ -25,9 +25,9 @@ botonguardar.addEventListener("click",guardar);
 
 async function guardar()
 {
-  let nombre= document.getElementById("nombre").value;
-  let peso= document.getElementById("peso").value;
-  let altura= document.getElementById("altura").value;
+  let nombre= document.getElementById("disabledTextInput").value;
+  let peso= document.getElementById("weight").value;
+  let altura= document.getElementById("height").value;
 
   const docRef=await addDoc (collection(db, "cal-masa"),{
       altura:altura,
