@@ -1,50 +1,39 @@
-// Import the Firebase SDK
-const firebase = require('firebase/app');
-require('firebase/database');
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+import {getFirestore,collection,addDoc,query,getDocs} from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
+
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyAZNJWq5e3kEizYOgYfaSvk7H3AZerE-ag",
+  authDomain: "masa-corporal-538c7.firebaseapp.com",
+  projectId: "masa-corporal-538c7",
+  storageBucket: "masa-corporal-538c7.appspot.com",
+  messagingSenderId: "1069210643216",
+  appId: "1:1069210643216:web:213b569603ef427855d395"
+};
 
 // Initialize Firebase
-const config = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  databaseURL: "YOUR_DATABASE_URL",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID"
-};
+const app = initializeApp(firebaseConfig);
 
-firebase.initializeApp(config);
+const db = getFirestore(app);
 
-// Get a reference to the database
-const database = firebase.database();
+let botonguardar = document.getElementById("btnguardar");
+botonguardar.addEventListener("click",guardar);
 
-// Define a function to save data to the database
-function saveData(data) {
-  // Generate a new key for the data
-  const newKey = database.ref('data').push().key;
+async function guardar()
+{
+  let nombre= document.getElementById("nombre").value;
+  let peso= document.getElementById("peso").value;
+  let altura= document.getElementById("altura").value;
 
-  // Set the data at the new key
-  const updates = {};
-  updates['/data/' + newKey] = data;
-
-  return database.ref().update(updates)
-   .then(() => {
-      console.log('Data saved successfully');
-      return newKey;
-    })
-   .catch(error => {
-      console.error('Error saving data:', error);
-      return null;
-    });
-}
-
-// Example usage
-const data = {
-  name: 'John Doe',
-  age: 30,
-  email: 'john.doe@example.com'
-};
-
-saveData(data)
- .then(key => {
-    console.log('Saved data with key:', key);
+  const docRef=await addDoc (collection(db, "cal-masa"),{
+      altura:altura,
+      nombre:nombre,
+      peso:peso,
+    
   });
+
+}
